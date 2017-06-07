@@ -1,7 +1,7 @@
 FROM jboss/base-jdk:7
 
-ENV JBOSS_VERSION 7.0.2.Final
-ENV JBOSS_SHA1 e4355d037bcde8140a6df0f16ba5fcf472ece59e
+ENV JBOSS_VERSION 7.0.0.Final
+ENV JBOSS_SHA1 932fb3641f5cffcd877b6e8f6bc9e6a51f3e743f
 ENV JBOSS_HOME /opt/jboss/jboss
 
 USER root

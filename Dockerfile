@@ -1,7 +1,7 @@
 FROM jboss/base-jdk:7
 
-ENV JBOSS_VERSION 7.0.2.Final
-ENV JBOSS_SHA1 e4355d037bcde8140a6df0f16ba5fcf472ece59e
+ENV JBOSS_VERSION 7.1.0.Final
+ENV JBOSS_SHA1 f55f376bb0cbe1d2396243cae851f506b79dd040
 ENV JBOSS_HOME /opt/jboss/jboss
 
 USER root
@@ -9,11 +9,11 @@ USER root
 # Add the JBOSS distribution to /opt, and make jboss the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
-    && curl -O http://download.jboss.org/jbossas/$(echo $JBOSS_VERSION | cut -d'.' -f1,2)/jboss-as-$JBOSS_VERSION/jboss-as-web-$JBOSS_VERSION.tar.gz \
-    && sha1sum jboss-as-web-$JBOSS_VERSION.tar.gz | grep $JBOSS_SHA1 \
-    && tar xf jboss-as-web-$JBOSS_VERSION.tar.gz \
-    && mv $HOME/jboss-as-web-$JBOSS_VERSION $JBOSS_HOME \
-    && rm jboss-as-web-$JBOSS_VERSION.tar.gz \
+    && curl -O http://download.jboss.org/jbossas/$(echo $JBOSS_VERSION | cut -d'.' -f1,2)/jboss-as-$JBOSS_VERSION/jboss-as-$JBOSS_VERSION.tar.gz \
+    && sha1sum jboss-as-$JBOSS_VERSION.tar.gz | grep $JBOSS_SHA1 \
+    && tar xf jboss-as-$JBOSS_VERSION.tar.gz \
+    && mv $HOME/jboss-as-$JBOSS_VERSION $JBOSS_HOME \
+    && rm jboss-as-$JBOSS_VERSION.tar.gz \
     && chown -R jboss:0 ${JBOSS_HOME} \
     && chmod -R g+rw ${JBOSS_HOME}
 
